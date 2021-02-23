@@ -135,7 +135,7 @@ class H5TrueDataset(h5CommonDataset, ABC):
         allpmts  = np.array( list(pmt_photons_dict.keys()) )
         alltimes = np.array( list(pmt_mintimes_dict.values()) ) + timeoffset
         allcharges = np.array( list(pmt_photons_dict.values()) )
-        return ( allpmts, alltimes, allcharges ) 
+        return ( allpmts, allcharges, alltimes ) 
     
     def __getitem__(self, item):
         if not hasattr(self, 'h5_file'):
@@ -147,7 +147,7 @@ class H5TrueDataset(h5CommonDataset, ABC):
         self.true_times   = self.time[start:stop]
         self.true_parents = self.hit_parent[start:stop]
  
-        hit_pmts, hit_times, hit_charges = self.digitize( self.true_pmts, self.true_times, self.true_parents )
+        hit_pmts, hit_charges, hit_times = self.digitize( self.true_pmts, self.true_times, self.true_parents )
 
         data = self.get_data(hit_pmts, hit_charges, hit_times)
 
