@@ -30,6 +30,8 @@ class DigiTruthMapping:
     if data_entry!= -1:
         // do something.
     
+    
+    Blair Jamieson, Sidney Leggett (Jan. 2021)
     """
     def __init__(self, dataset, mcset, picklefile_dft='', picklefile_tfd=''):
 
